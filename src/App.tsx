@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
+import TodoContext from './context/TodoContext';
 import Todo from './model/Todo';
 
 function App() {
@@ -14,8 +15,10 @@ function App() {
   }
 
   return <React.Fragment>
-    <TodoInput insertTodo={insertTodo} />
-    <TodoList /> 
+    <TodoContext.Provider value={{todos: todos, insertTodo, deleteTodo}}>
+      <TodoInput />
+      <TodoList /> 
+    </TodoContext.Provider>
   </React.Fragment>;
 };
 

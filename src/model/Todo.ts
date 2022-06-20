@@ -7,3 +7,8 @@ export default class Todo {
         this.id = new Date().toISOString();
     };
 };
+
+export type TodoType = {
+    id: string,
+    text: string
+};

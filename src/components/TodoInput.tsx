@@ -1,17 +1,16 @@
-import { ReactEventHandler, useRef } from 'react';
+import { useContext, useRef } from 'react';
+import TodoContext from '../context/TodoContext';
 import Todo from '../model/Todo';
 import './TodoInput.css';
 
-type TodoInputProps = {
-    insertTodo: (todo:Todo) => void; 
-};
-
-const TodoInput:React.FC <TodoInputProps> = (props) => {
+const TodoInput:React.FC <{}> = (props) => {
     const inputRef = useRef<HTMLInputElement>(null);
+    
+    const {insertTodo} = useContext(TodoContext);
 
     const clickHandler = () => {
         const todoText = inputRef.current!.value;
-        props.insertTodo(new Todo(todoText));
+        insertTodo(new Todo(todoText));
         inputRef.current!.value = "";
     };
 
