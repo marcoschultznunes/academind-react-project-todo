@@ -5,6 +5,10 @@
     padding: var(--margin-half) var(--margin-normal);
     position: relative;
 }
+.todo-item-container span {
+    margin-right: 20px;
+    overflow-x: auto;
+}
 .todo-item-container button {
     background-color: var(--color-red);
     box-shadow: 0 0 2px var(--color-gray);

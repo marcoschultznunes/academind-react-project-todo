@@ -16,13 +16,25 @@ function App() {
     setTodos(prevTodos => prevTodos.filter((todo) => todo.id !== id))
   }
   
-  // const firstUpdate = useRef(true);
-  // useEffect(() => {
-  //   if (firstUpdate.current) {
-  //     firstUpdate.current = false;
-  //     return;
-  //   }
-  // }, [todos]);
+  const firstRender = useRef(true);  // ref used to determine if it is the first render
+  
+  /*  
+    This useEffect does 2 things:
+      => SAVES the todos in local storage if it is NOT the first render;
+      => LOADS the todos from the local storage if it IS the first render.
+  */
+  useEffect(() => {
+    try {
+      if (firstRender.current) {
+        setTodos(JSON.parse(localStorage.getItem('todosAppTodos')!));
+        firstRender.current = false;
+        return;
+      }
+      localStorage.setItem('todosAppTodos', JSON.stringify(todos));
+    } catch(err) {
+      console.log(err);
+    }
+  }, [todos]);
 
   /* TodoContext: provides the todos and the insert and delete functions */
   return <React.Fragment>
