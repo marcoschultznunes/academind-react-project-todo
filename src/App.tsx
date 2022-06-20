@@ -5,8 +5,10 @@ import TodoContext from './context/TodoContext';
 import Todo from './model/Todo';
 
 function App() {
+  /* todos state is stored here */
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  /* insert and delete Todos functions */
   const insertTodo = (todo:Todo) => {
     setTodos(prevTodos => prevTodos.concat(todo))
   }
@@ -22,8 +24,9 @@ function App() {
   //   }
   // }, [todos]);
 
+  /* TodoContext: provides the todos and the insert and delete functions */
   return <React.Fragment>
-    <TodoContext.Provider value={{todos: todos, insertTodo, deleteTodo}}>
+    <TodoContext.Provider value={{todos, insertTodo, deleteTodo}}>
       <TodoInput />
       <TodoList /> 
     </TodoContext.Provider>
