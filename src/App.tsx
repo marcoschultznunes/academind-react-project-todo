@@ -8,7 +8,7 @@ function App() {
   const insertTodo = (todo:Todo) => {
     setTodos(prevTodos => prevTodos.concat(todo))
   }
-  const deleteTodo = (id:any) => {
+  const deleteTodo = (id:string) => {
     setTodos(prevTodos => prevTodos.filter((todo) => todo.id !== id))
   }
 
