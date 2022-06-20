@@ -5,6 +5,7 @@ import Todo from './model/Todo';
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
+
   const insertTodo = (todo:Todo) => {
     setTodos(prevTodos => prevTodos.concat(todo))
   }
@@ -13,7 +14,7 @@ function App() {
   }
 
   return <React.Fragment>
-    <TodoInput />
+    <TodoInput insertTodo={insertTodo} />
     <TodoList /> 
   </React.Fragment>;
 };
