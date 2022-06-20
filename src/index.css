@@ -1,3 +1,7 @@
+:root {
+  --margin-normal: 20px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,4 +13,5 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0 20vw;
 }
