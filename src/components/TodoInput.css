@@ -25,3 +25,10 @@
     font-size: 1rem;
     padding: 8px 24px;
 }
+
+.btn__disabled {
+    background-color: var(--color-gray);
+}
+.btn__disabled:hover {
+    cursor: auto;
+}

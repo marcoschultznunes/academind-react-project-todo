@@ -10,7 +10,7 @@ const TodoList:React.FC <{}> = (props) => {
 
     return <div className="todo-list-container">
         <ul>
-            {renderedTodos}
+            {todos.length > 0 ? renderedTodos: <h3>No Todos added yet</h3>}
         </ul>
     </div>;
 };

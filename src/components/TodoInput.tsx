@@ -9,16 +9,27 @@ const TodoInput:React.FC <{}> = (props) => {
     const {insertTodo} = useContext(TodoContext);
 
     const clickHandler = () => {
-        const todoText = inputRef.current!.value;
-        insertTodo(new Todo(todoText));
+        const todoText = inputRef.current!.value.trim();
+        if(todoText.length > 0){
+            insertTodo(new Todo(todoText));
+        }
         inputRef.current!.value = "";
     };
+    const enterHandler = (e:React.KeyboardEvent) => {
+        if(e.key === "Enter"){
+            clickHandler();
+        }
+    }
 
     return <div className="todo-input-container">
         <label htmlFor='todo'>Todo text</label>
-        <input type="text" name="todo" placeholder='Todo text' ref={inputRef}/>
+        <input type="text" name="todo" placeholder='Todo text' ref={inputRef} 
+            onKeyDown={enterHandler}
+        />
         <div>
-            <button onClick={clickHandler}>Add Todo</button>
+            <button onClick={clickHandler} >
+                Add Todo
+            </button>
         </div>
     </div>;
 };
