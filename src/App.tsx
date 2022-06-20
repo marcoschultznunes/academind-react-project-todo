@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import TodoContext from './context/TodoContext';
@@ -13,6 +13,14 @@ function App() {
   const deleteTodo = (id:string) => {
     setTodos(prevTodos => prevTodos.filter((todo) => todo.id !== id))
   }
+  
+  // const firstUpdate = useRef(true);
+  // useEffect(() => {
+  //   if (firstUpdate.current) {
+  //     firstUpdate.current = false;
+  //     return;
+  //   }
+  // }, [todos]);
 
   return <React.Fragment>
     <TodoContext.Provider value={{todos: todos, insertTodo, deleteTodo}}>

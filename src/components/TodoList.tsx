@@ -6,7 +6,9 @@ import TodoListItem from './TodoListItem';
 const TodoList:React.FC <{}> = (props) => {
     const {todos} = useContext(TodoContext);
 
-    const renderedTodos = todos.map((todo) => <TodoListItem id={todo.id} text={todo.text} />);
+    const renderedTodos = todos.map((todo) => 
+        <TodoListItem id={todo.id} text={todo.text} key={todo.id}/>
+    );
 
     return <div className="todo-list-container">
         <ul>

@@ -1,1 +1,4 @@
 => save todos in localstore (useEffect?)
+=> load todos on start
+=> error boundary
+=> comments
