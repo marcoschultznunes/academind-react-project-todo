@@ -1,0 +1,18 @@
+.todo-item-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--margin-half) var(--margin-normal);
+    position: relative;
+}
+.todo-item-container button {
+    background-color: var(--color-red);
+    box-shadow: 0 0 2px var(--color-gray);
+    color: #ffffff;
+    font-size: 0.75rem;
+    position: absolute;
+    top: var(--margin-tiny);
+    right: var(--margin-tiny);
+    height: 1.25rem;
+    width: 1.25rem;
+}

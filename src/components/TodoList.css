@@ -1,0 +1,6 @@
+.todo-list-container li {
+    background-color: var(--color-lightgray);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    margin-bottom: var(--margin-small);
+}
